@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class InviteTest < ActiveSupport::TestCase
   # test "the truth" do
