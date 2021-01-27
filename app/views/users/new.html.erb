@@ -1,0 +1,19 @@
+<%= form_for @user do |form| %>
+  <% @user.errors.any? %>
+  <% @user.errors.full_messages.each do |msg| %>
+    <div class = "alert">
+      <p>
+        <%= msg %>
+      </p>
+    </div>
+  <% end %>		
+  <div class="field">
+    <div class = 'inner-div'>
+      <h2>Create account</h2>
+        <%= form.text_field :name, placeholder: "Enter your name", :class => 'text' %>
+
+        <%= form.submit 'Sign Up', :class => 'submit' %>
+        <p><%= link_to 'LogIn', @articles_path %></p>
+      </div>
+    </div>
+<% end %>

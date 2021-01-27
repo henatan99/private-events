@@ -1,0 +1,64 @@
+.field,
+.inner-div,
+.alert,
+.div-user,
+.edit,
+.signin {
+  display: flex;
+  justify-content: center;
+}
+
+.inner-div {
+  flex-direction: column;
+  border-radius: 5px;
+  padding: 10px 20px;
+  box-shadow: 0 0 8px lightgray;
+  margin-top: 25px;
+}
+
+.submit {
+  margin-top: 10px;
+  outline: none;
+  padding: 5px 0;
+  font-size: 18px;
+  background-color: #16a058;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+h2 { color: forestgreen; }
+
+.text {
+  padding: 3px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  margin: 10px 0;
+  font-size: 18px;
+}
+
+.alert {
+  color: #d8000c;
+  background-color: #ffbaba;
+}
+
+.div-user {
+  background-color: grey;
+}
+
+.para {
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  background-color: #0c4a6e;
+  border-radius: 5px;
+  padding: 3px 8px;
+  border: none;
+  color: #fff !important;
+}

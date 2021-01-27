@@ -1,4 +1,7 @@
 class SessionsController < ApplicationController
+  def new
+  end
+
   def create
     if user = User.find_by_name(params[:name])
       session[:user_id] = user.id
@@ -10,6 +13,6 @@ class SessionsController < ApplicationController
 
   def destroy
     @current_user = session[:current_user_id] = nil
-    redirect_to root_path
+    redirect_to root_path, notice: 'You successfully logged Out!'
   end
 end
