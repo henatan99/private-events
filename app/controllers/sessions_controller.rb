@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
   def new; end
 
   def create
-    if user = User.find_by_name(params[:name])
+    if User.find_by_name(params[:name]).nil?
+      user = User.find_by_name(params[:name])
       session[:user_id] = user.id
       redirect_to posts_path, notice: 'You successfully signed in!'
     else
