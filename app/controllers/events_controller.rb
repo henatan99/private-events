@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :require_login, only: %i[edit update destroy]
+  before_action :require_login, only: %i[new edit update destroy]
 
   # GET /events or /events.json
   def index

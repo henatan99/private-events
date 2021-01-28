@@ -1,10 +1,10 @@
 class AttendancesController < ApplicationController
   def create
     event = Event.find(params[:event_id])
-    invite = Invite.new(event_id: event.id, user_id: params[:user_id])
+    attendance = Attendance.new(event_id: event.id, user_id: params[:user_id])
 
-    if invite.save
-      invite.invited!
+    if attendance.save
+      attendance.invited!
       flash[:notice] = 'Invitation sent!'
       redirect_to users_path(event_id: event.id)
     else
@@ -15,13 +15,13 @@ class AttendancesController < ApplicationController
 
   def destroy
     event = Event.find(params[:event_id])
-    invite = Invite.find(params[:id])
+    invite = Attendance.find(params[:id])
     if current_user == event.creator
-      invite.destroy
+      attendance.destroy
       flash[:notice] = 'The invitation is cancelled!'
     else
-      invite.status = 'invited'
-      invite.save
+      attendance.status = 'invited'
+      attendance.save
       flash[:notice] = "You have dropped the invite for the #{event.name}!"
     end
 
@@ -30,9 +30,9 @@ class AttendancesController < ApplicationController
 
   def update
     @event = Event.find(params[:event_id])
-    @invite = Invite.find_by(event_id: params[:event_id], user_id: current_user.id)
-    if @invite.invited?
-      @invite.accepted!
+    @attendance = Attendance.find_by(event_id: params[:event_id], user_id: current_user.id)
+    if @attendance.invited?
+      @attendance.accepted!
       flash[:notice] = "Thank you for signing up for the '#{@event.name}'!"
     else
       flash[:alert] = 'Your name is not on the invitation list'
