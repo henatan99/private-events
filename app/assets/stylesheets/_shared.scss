@@ -8,7 +8,8 @@
   justify-content: center;
 }
 
-.inner-div {
+.inner-div,
+.event {
   flex-direction: column;
   border-radius: 5px;
   padding: 10px 20px;
@@ -26,6 +27,13 @@
   color: #fff;
   cursor: pointer;
   border-radius: 5px;
+}
+
+label {
+  margin-bottom: 3px;
+  font-size: 18px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-weight: 300;
 }
 
 h2 { color: forestgreen; }
@@ -53,9 +61,11 @@ h2 { color: forestgreen; }
   font-family: Arial, Helvetica, sans-serif;
 }
 
-a {
+a,
+.event_create {
   display: inline-block;
   text-decoration: none;
+  font-size: 17px;
   background-color: #0c4a6e;
   border-radius: 5px;
   padding: 3px 8px;

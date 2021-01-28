@@ -11,13 +11,23 @@
     </div>
   <% end %>
   <div class="field">
-    <div>
-      <%= form.label :description %>
-      <%= form.text_area :description %>
+    <div class ="event">
+			<h2>Create Event</h2>
+			<p>
+				<%= form.label :name, claass: 'label' %>
+				<%= form.text_area :name %>
+			</p>
+			<p>
+				<%= form.date_select :starts_at %>
+  			<%= form.time_select :starts_at, :ignore_date => true %>
+			</p>
+			<p>
+				<%= form.label :description,claass: 'label' %>
+				<%= form.text_area :description,cols: 40, rows: 10 %>
+			</p>
+			<div class="actions">
+    		<%= form.submit 'Create', class: 'event_create' %>
+  		</div>
     </div>
-  </div>
-
-  <div class="actions">
-    <%= form.submit 'Create'%>
   </div>
 <% end %>
