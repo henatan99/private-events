@@ -1,4 +1,4 @@
-class InvitesController < ApplicationController
+class AttendancesController < ApplicationController
   def create
     event = Event.find(params[:event_id])
     invite = Invite.new(event_id: event.id, user_id: params[:user_id])
