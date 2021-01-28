@@ -62,6 +62,13 @@ h2 { color: forestgreen; }
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.header_log {
+  margin-right: auto;
+  background-color: skyblue;
+  padding: 3px 8px;
+  cursor: pointer;
+}
+
 a,
 .event_craete {
   display: inline-block;
