@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[show edit update destroy]
+  before_action :require_login, only: %i[edit update destroy]
 
   # GET /events or /events.json
   def index
@@ -16,11 +16,11 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit; end
-
   # POST /events or /events.json
-  def create
-    @event = current_user.events.build(event_params)
 
+  def create
+    @event = current_user.invites.build(event_params)
+    # @event.user = current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
