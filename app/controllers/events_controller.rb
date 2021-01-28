@@ -20,7 +20,6 @@ class EventsController < ApplicationController
 
   def create
     @event = current_user.events.build(event_params)
-    # @event.user = current_user
     respond_to do |format|
       if @event.save
         format.html { redirect_to root_path, notice: 'Event was successfully created.' }
