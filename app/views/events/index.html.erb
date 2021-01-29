@@ -9,9 +9,7 @@
 					<p><%= event.Description %></p>
 					<p><%= event.date %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-					<% if current_user %>
-						<small>by <%= current_user.name %></small>
-					<% end %>					
+						<small>by <%= event.creator.name %></small>					
 				</div>
 
 				<div class = "links">
@@ -19,15 +17,11 @@
 					<p><%= link_to 'Show', event %></p>
 					<% if current_user %>
 						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-					
-						<p><%= link_to 'Edit', edit_event_path(event) %></p>
 						<p><%= link_to 'New Event', new_event_path %></p>
 					<% end %>
 				</div>
 		<% end %> 
-	
   </div>  
-
 </div>
 </div>
 
@@ -41,20 +35,19 @@
 					<p><%= event.Description %></p>
 					<p><%= event.date %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-					<% if current_user %>
-						<small>by <%= current_user.name %></small>
-					<% end %>					
+						<small>by <%= event.creator.name %></small>			
 				</div>
-
+					
 				<div class = "links">
 					<br>
 					<p><%= link_to 'Show', event %></p>
-					<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-					<p><%= link_to 'Edit', edit_event_path(event) %></p>
-					<p><%= link_to 'New', new_event_path %></p>
+					<% if current_user %>
+						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<% end %>
 				</div>
+				
 		<% end %> 
-	
+		<hr>
   </div>  
 
 </div>
