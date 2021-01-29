@@ -5,11 +5,9 @@ class AttendancesController < ApplicationController
 
     if attendance.save
       attendance.invited!
-      flash[:notice] = 'Invitation sent!'
-      redirect_to users_path(event_id: event.id)
+      redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
     else
-      flash[:alert] = 'Ooops! Something went wrong...'
-      redirect_to event_path(event)
+      redirect_to event_path(event), alert: 'Ooops! Something went wrong...'
     end
   end
 

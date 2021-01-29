@@ -10,16 +10,19 @@
 					<p><%= event.date %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
 					<% if current_user %>
-						<small>by <%= event.name %></small>
+						<small>by <%= current_user.name %></small>
 					<% end %>					
 				</div>
 
 				<div class = "links">
 					<br>
 					<p><%= link_to 'Show', event %></p>
-					<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-					<p><%= link_to 'Edit', edit_event_path(event) %></p>
-					<p><%= link_to 'New Event', new_event_path %></p>
+					<% if current_user %>
+						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					
+						<p><%= link_to 'Edit', edit_event_path(event) %></p>
+						<p><%= link_to 'New Event', new_event_path %></p>
+					<% end %>
 				</div>
 		<% end %> 
 	
@@ -39,16 +42,16 @@
 					<p><%= event.date %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
 					<% if current_user %>
-						<small>by <%= event.name %></small>
+						<small>by <%= current_user.name %></small>
 					<% end %>					
 				</div>
 
 				<div class = "links">
 					<br>
-					<p><%= link_to 'Show Past Event', event %></p>
-					<p><%= link_to 'Delete Past Event', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-					<p><%= link_to 'Edit Past Event', edit_event_path(event) %></p>
-					<p><%= link_to 'New Event', new_event_path %></p>
+					<p><%= link_to 'Show', event %></p>
+					<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<p><%= link_to 'Edit', edit_event_path(event) %></p>
+					<p><%= link_to 'New', new_event_path %></p>
 				</div>
 		<% end %> 
 	
