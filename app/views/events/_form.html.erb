@@ -15,7 +15,7 @@
 			<h2>Create Event</h2>
 			<p>
 				<%= form.label :name, claass: 'label' %>
-				<%= form.text_area :name %>
+				<%= form.text_field :name %>
 			</p>
 			<p>
 				<%= form.date_select :starts_at %>
@@ -23,7 +23,7 @@
 			</p>
 			<p>
 				<%= form.label :description,claass: 'label' %>
-				<%= form.text_area :description,cols: 40, rows: 10 %>
+				<%= form.text_area :description,cols: 40, rows: 5 %>
 			</p>
 			<div class="actions">
     		<%= form.submit 'Create', class: 'event_create' %>
