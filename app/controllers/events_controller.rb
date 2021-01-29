@@ -20,10 +20,10 @@ class EventsController < ApplicationController
   end
 
   def create
-    @event = current_user.attended_events.build(event_params)
+    @event = current_user.events.build(event_params)
 
     if @event.save
-      redirect_to @created_event,
+      redirect_to root_path,
                   notice: 'Event created succussfully!'
     else
       render 'new'
@@ -61,6 +61,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :date, :description)
+    params.require(:event).permit(:name, :Description)
   end
 end
