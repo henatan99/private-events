@@ -1,24 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-# <p>
-#   <strong>Description:</strong>
-#   <%= @event.name %>
-#   <%= @event.Description %>
-# </p>
-
 <p>
   <strong>Description:</strong>
-  <% if upcoming_events? %>
-    <%= @event.name %>
-    <%= @event.Description %>
-  <% end %>
+  <%= @event.name %>
+  <%= @event.Description %>
 </p>
-
-# <p>
-#   <strong>Description:</strong>
-#   <%= @event.name %>
-#   <%= @event.Description %>
-# </p>
 
 <%= link_to 'Edit', edit_event_path(@event) %> |
 <%= link_to 'Back', events_path %>
