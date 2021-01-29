@@ -9,7 +9,13 @@
   justify-content: center;
 }
 
+.links,
+.event_data {
+  display: flex;
+}
+
 .inner-div,
+.event_data,
 .event {
   flex-direction: column;
   border-radius: 5px;
