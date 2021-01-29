@@ -18,6 +18,8 @@ def date_only
   date.strftime('%b %-d %Y')
 end
 
+
+
 private
 
 def starts_in_the_future

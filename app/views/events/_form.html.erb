@@ -20,6 +20,10 @@
 			<p>
 				<%= form.label :Description,claass: 'label' %>
 				<%= form.text_area :Description,cols: 40, rows: 5 %>
+      </p>
+      <p>
+				<%= form.label :Date,claass: 'label' %>
+				<%= form.date_field :date %>
 			</p>
 			<div class="actions">
     		<%= form.submit 'Create', class: 'event_create' %>

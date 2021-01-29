@@ -4,6 +4,8 @@ class EventsController < ApplicationController
   # GET /events or /events.json
   def index
     @events = Event.order(created_at: :DESC)
+    @prev_events = Event.past
+    @upcoming_events = Event.upcoming
   end
 
   # GET /events/1 or /events/1.json
@@ -48,7 +50,7 @@ class EventsController < ApplicationController
       format.html { redirect_to events_url, notice: 'Event was successfully deleted.' }
       format.json { head :no_content }
     end
-  end
+  end  
 
   private
 
@@ -59,6 +61,6 @@ class EventsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def event_params
-    params.require(:event).permit(:name, :Description)
+    params.require(:event).permit(:name, :Description, :date)
   end
 end
