@@ -4,13 +4,13 @@
 .div-user,
 .edit,
 .signin,
-.navbar {
+.navbar,
+.event {
   display: flex;
   justify-content: center;
 }
 
-.inner-div,
-.event {
+.inner-div {
   flex-direction: column;
   border-radius: 5px;
   padding: 10px 20px;

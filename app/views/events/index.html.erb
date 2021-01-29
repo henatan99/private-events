@@ -8,7 +8,7 @@
         <p><%= event.Description %></p>
         <small><%= time_ago_in_words(event.created_at) %> ago </small>
         <% if current_user %>
-          <small><%= event.name %></small>
+          <small>by <%= event.name %></small>
         <% end %>
         <hr>
       </div>
