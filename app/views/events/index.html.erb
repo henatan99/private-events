@@ -3,21 +3,22 @@
 <div class ="event_div">
   <div class ="event_data">
     <% @events.each do |event| %>
-      <div>
-        <h2><%= event.name %></h2>
-        <p><%= event.Description %></p>
-        <small><%= time_ago_in_words(event.created_at) %> ago </small>
-        <% if current_user %>
-          <small>by <%= event.name %></small>
-        <% end %>
-        <hr>
-      </div>
-        <br>
-        <p><%= link_to 'Show', event %></p>
-        <p><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
-        <p><%= link_to 'Edit', edit_event_path(event) %></p>
-        <p><%= link_to 'New Event', new_event_path %></p>
-      <% end %> 
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+					<% if current_user %>
+						<small>by <%= event.name %></small>
+					<% end %>
+				</div>
+
+				<div class = "links">
+					<br>
+					<p><%= link_to 'Show', event %></p>
+					<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<p><%= link_to 'Edit', edit_event_path(event) %></p>
+					<p><%= link_to 'New Event', new_event_path %></p>
+				</div>
+		<% end %> 
   </div>
 </div>
-<br>
