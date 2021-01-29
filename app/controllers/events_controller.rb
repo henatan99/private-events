@@ -15,14 +15,13 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
-    # @user = current_user.find_by_name(params[:name])
-    # @created_event = @user.created_events.build
   end
 
   def create
-    @event = current_user.events.build(event_params)
+    @event = Event.new(event_params)
+    @created_event = @event.current_user.build
 
-    if @event.save
+    if @created_event.save
       redirect_to root_path,
                   notice: 'Event created succussfully!'
     else
