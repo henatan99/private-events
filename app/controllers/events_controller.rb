@@ -1,11 +1,12 @@
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy]
-
+  before_action :set_event, only: [:show, :edit, :update, :destroy]
   # GET /events or /events.json
   def index
     @events = Event.order(created_at: :DESC)
     @prev_events = Event.past
     @upcoming_events = Event.upcoming
+    # @events_own = link_to "Edit", edit_event_path(@event)
   end
 
   # GET /events/1 or /events/1.json
@@ -15,7 +16,7 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    redirect_to edit_event_path	
+    @event = Event.find(params[:id])
   end
   # POST /events or /events.json
 
@@ -49,12 +50,16 @@ class EventsController < ApplicationController
 
   # DELETE /events/1 or /events/1.json
   def destroy
+    @event = current_user.created_events.find params[:id]
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully deleted.' }
-      format.json { head :no_content }
-    end
-  end  
+    redirect_to root_path, notice: 'Event successfully deleted.'
+
+    # @event.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to events_path, notice: 'Event was successfully deleted.' }
+    #   format.json { head :no_content }
+    # end
+  end
 
   private
 

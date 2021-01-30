@@ -13,7 +13,7 @@
         <%= form.text_field :name, placeholder: "Enter your name", :class => 'text' %>
 
         <%= form.submit 'Sign Up', :class => 'submit' %>
-        <p><%= link_to 'LogIn', @articles_path %></p>
+        <p><%= link_to 'LogIn', new_session_path %></p>
       </div>
     </div>
 <% end %>
