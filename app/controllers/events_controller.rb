@@ -14,11 +14,13 @@ class EventsController < ApplicationController
   end
 
   # GET /events/1/edit
-  def edit; end
+  def edit
+    redirect_to edit_event_path	
+  end
   # POST /events or /events.json
 
   def new
-    @event = Event.new
+    @event = Event.new    
   end
 
   def create
@@ -36,7 +38,7 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
+        format.html { redirect_to root_path, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
         format.html { render :edit, status: :unprocessable_entity }
