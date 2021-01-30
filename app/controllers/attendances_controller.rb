@@ -1,5 +1,5 @@
 class AttendancesController < ApplicationController
-  def new 
+  def new
     @attendance = Attendance.new
   end
 
@@ -7,8 +7,8 @@ class AttendancesController < ApplicationController
     @attendance = Attendance.create(attendance_params)
 
     if @attendance.save
-    @attendance.invited!
-    redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
+      @attendance.invited!
+      redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
     else
       redirect_to root_path, alert: 'Ooops! Something went wrong...'
     end
