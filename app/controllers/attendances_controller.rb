@@ -1,15 +1,30 @@
 class AttendancesController < ApplicationController
-  def create
-    event = Event.find(params[:event_id])
-    attendance = Attendance.new(event_id: event.id, user_id: params[:user_id])
+  def new 
+    @attendance = Attendance.new
+  end
 
-    if attendance.save
-      attendance.invited!
-      redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
+  def create
+    @attendance = Attendance.create(attendance_params)
+
+    if @attendance.save
+    @attendance.invited!
+    redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
     else
-      redirect_to event_path(event), alert: 'Ooops! Something went wrong...'
+      redirect_to root_path, alert: 'Ooops! Something went wrong...'
     end
   end
+
+  # def create
+  #   event = Event.find(params[:event_id])
+  #   attendance = Attendance.new(event_id: event.id, user_id: params[:user_id])
+
+  #   if attendance.save
+  #     attendance.invited!
+  #     redirect_to users_path(event_id: event.id), notice: 'Invitation sent!'
+  #   else
+  #     redirect_to event_path(event), alert: 'Ooops! Something went wrong...'
+  #   end
+  # end
 
   def destroy
     event = Event.find(params[:event_id])
@@ -36,5 +51,11 @@ class AttendancesController < ApplicationController
       flash[:alert] = 'Your name is not on the invitation list'
     end
     redirect_to event_path(@event)
+  end
+
+  private
+
+  def attendance_params
+    params.require(:attendance).permit(:attendee_id, :event_id)
   end
 end

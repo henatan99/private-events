@@ -1,0 +1,19 @@
+<%= form_for @attendance do |form| %>
+    <% @attendance.errors.any? %>
+    <% @attendance.errors.full_messages.each do |msg| %>
+      <div class = "alert">
+        <p>
+          <%= msg %>
+        </p>
+      </div>
+    <% end %>		
+    <div class="field">
+      <div class = 'inner-div'>
+        <h2>Register </h2>
+          <%= form.text_field :attendee, placeholder: "Enter your name", :class => 'text' %>
+  
+          <%= form.submit 'Register', :class => 'submit' %>
+          <p><%= link_to 'Back', root_path %></p>
+        </div>
+      </div>
+  <% end %>
