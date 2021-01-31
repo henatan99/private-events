@@ -74,6 +74,17 @@ h2 { color: forestgreen; }
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.show {
+  display: flex;
+  padding: 25px;
+}
+
+.event-data {
+  box-shadow: 0 0 3px lightgray;
+  padding: 10px;
+  margin-bottom: 25px;
+}
+
 .cancel {
   color: #fff !important;
   background-color: #4267b2;
