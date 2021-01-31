@@ -58,10 +58,10 @@ class EventsController < ApplicationController
   def invitation
     @event = Event.find(params[:id])
     if @event.attendees.include?(current_user)
-      @event.attendees << current_user
-      redirect_to @event, notice: 'You successfully registered!'
+      redirect_to @event, alert: 'You are already on the list'
     else
-      redirect_to event_path, notice: 'Please Sign In or Sign Up!'
+      @event.attendees << current_user
+      redirect_to @event, notice: 'You successfully registered for this event!'
     end
   end
 

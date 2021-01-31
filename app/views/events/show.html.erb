@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
+<% if alert %>
+  <p id="alert"><%= alert %></p>
+<% end %>
+
 <% if @event.date < Time.now %>
-<div >Registration for this event is now closed</div> 
+  <div >Registration for this event is now closed</div> 
 <% end %>
 
 <div>
@@ -19,7 +23,6 @@
                             data: { confirm: "Delete this event?"} %>
     <% elsif @event.attendees.include?(current_user) %>
       <%= link_to 'Cancel', invitation_event_path, class: 'cancel' %>
-    <% else %>
       <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
     <% end %>
   </div>
