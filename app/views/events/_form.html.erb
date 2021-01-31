@@ -26,8 +26,11 @@
 				<%= form.date_field :date %>
 			</p>
 			<div class="actions">
-    		<%= form.submit 'Create', class: 'event_create' %>      
-    		<%= form.submit 'Update', class: 'event_update' %>
+				<% if @edit %>
+					<%= form.submit 'Update', class: 'event_update' %>
+				<% else %>
+    			<%= form.submit 'Create', class: 'event_create' %> 
+				<% end %>     
       </div>
     </div>
   </div>

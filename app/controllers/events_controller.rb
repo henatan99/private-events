@@ -1,6 +1,6 @@
 class EventsController < ApplicationController
   before_action :require_login, only: %i[new edit update destroy]
-  before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :set_event, only: %i[show edit update destroy]
   # GET /events or /events.json
   def index
     @events = Event.order(created_at: :DESC)
@@ -16,12 +16,12 @@ class EventsController < ApplicationController
 
   # GET /events/1/edit
   def edit
-    @event = Event.find(params[:id])
+    @edit = Event.find(params[:id])
   end
   # POST /events or /events.json
 
   def new
-    @event = Event.new    
+    @event = Event.new
   end
 
   def create
@@ -53,12 +53,22 @@ class EventsController < ApplicationController
     @event = current_user.created_events.find params[:id]
     @event.destroy
     redirect_to root_path, notice: 'Event successfully deleted.'
+  end
 
-    # @event.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to events_path, notice: 'Event was successfully deleted.' }
-    #   format.json { head :no_content }
-    # end
+  def invitation
+    @event = Event.find(params[:id])
+    if @event.attendees.include?(current_user)
+      @event.attendees << current_user
+      redirect_to @event, notice: 'You successfully registered!'
+    else
+      redirect_to event_path, notice: 'Please Sign In or Sign Up!'
+    end
+  end
+
+  def cancel_invitation
+    @event = Event.find(params[:id])
+    @event.attendees.delete(current_user)
+    redirect_to @event, alert: 'You are no longer attending this event'
   end
 
   private
