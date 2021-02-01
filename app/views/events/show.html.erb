@@ -5,10 +5,6 @@
       <p id="alert"><%= alert %></p>
     <% end %>
 
-    <% if @event.date < Time.now %>
-      <div >Registration for this event is now closed</div> 
-    <% end %>
-
     <div class = "event-data">
       <div>
         <p><%= @event.name.titleize %></p>
@@ -27,7 +23,7 @@
                                 data: { confirm: "Delete this event?"} %>
         <% else @event.attendees.include?(current_user) %>
           <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
-           <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' %>
+           <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' unless @event.date < Time.now %>
         <% end %>
       </div>
     </div>
@@ -38,6 +34,8 @@
     <% if @event.attendees.empty? %>
     <div class="">
       <h3 class="">This event has no attendees yet</h3>
+		<% elsif @event.date < Time.now && @event.attendees.empty? %>
+      <div >Registration for this event is now closed</div> 
     </div>
     <% else %>
       <div class="">

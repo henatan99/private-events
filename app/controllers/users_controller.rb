@@ -26,7 +26,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       redirect_to events_path,
-                  notice: "User #{@user.name} successfully created! Thank you for signing up!"
+                  notice: "Hi #{@user.name}, you successfully Signed up!"
     else
       render :new
     end
