@@ -7,8 +7,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_path, notice: 'Logged in succussfully!'
     else
-      flash.now.alert = 'The is invalid'
-      render 'new'
+      render 'new', alert: 'The name is invalid'
     end
   end
 
