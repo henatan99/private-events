@@ -19,7 +19,7 @@ A user can create events. A user can attend many events. An event can be attende
 To get started, you should first get this file in your local machine by cloning or forking this project or typing in your terminal
 
 ```
-git clone git@github.com:elisha2kyakpo1/members_ony.git
+git clone git@github.com:henatan99/private-events.git
 ```
 # Setup  
 Before you start using the scraper, you need to be sure that you have Ruby installed on your computer, by typing.
