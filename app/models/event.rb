@@ -6,15 +6,15 @@ class Event < ApplicationRecord
   scope :upcoming, -> { where('date >= ?', Date.today) }
 end
 
-def self.event_creator_name
+def event_creator_name
   creator.name
 end
 
-def self.date_and_time
+def date_and_time
   date.strftime('%b %-d %Y %l:%M%P')
 end
 
-def self.date_only
+def date_only
   date.strftime('%b %-d %Y')
 end
 
