@@ -6,19 +6,17 @@ class Event < ApplicationRecord
   scope :upcoming, -> { where('date >= ?', Date.today) }
 end
 
-def event_creator_name
+def self.event_creator_name
   creator.name
 end
 
-def date_and_time
+def self.date_and_time
   date.strftime('%b %-d %Y %l:%M%P')
 end
 
-def date_only
+def self.date_only
   date.strftime('%b %-d %Y')
 end
-
-private
 
 def starts_in_the_future
   return if date < Date.today
