@@ -14,7 +14,7 @@
 
 				<div class = "links">
 					<br>
-					<p><%= link_to 'Show', event %></p>
+					<p><%= link_to 'More details', event %></p>
 					<% if current_user == event.creator %>
 						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 					
@@ -41,7 +41,7 @@
 					
 				<div class = "links">
 					<br>
-					<p><%= link_to 'Show', event %></p>
+					<p><%= link_to 'More details', event %></p>
 					<% if current_user == event.creator %>
 						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
 					<% end %>
