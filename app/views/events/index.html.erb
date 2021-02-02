@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+  <h1>Upcoming Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  
+    <% @upcoming_events.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= link_to event.creator.name, user_path(event.creator)  %></small>					
+				</div>
+
+				<div class = "links">
+					<br>
+					<p><%= link_to 'More details', event %></p>
+					<% if current_user == event.creator %>
+						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					
+						<p><%= link_to 'New Event', new_event_path(@event) %></p>
+					<% end %>
+				</div>
+		<% end %> 
+  </div>  
+</div>
+</div>
+
+<h1>Previous Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  
+    <% @prev_events.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= link_to event.creator.name, user_path(event.creator) %></small>			
+				</div>
+					
+				<div class = "links">
+					<br>
+					<p><%= link_to 'More details', event %></p>
+					<% if current_user == event.creator %>
+						<p><%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+					<% end %>
+				</div>
+				
+		<% end %> 
+		<hr>
+  </div>  
+
+</div>
+</div>

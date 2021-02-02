@@ -1,0 +1,20 @@
+<div>
+    <% if alert %>
+      <p id="alert"><%= alert %></p>
+    <% end %>
+<div class ="signin">
+  <div>
+    <h1>Please Sign in</h1>
+
+    <%= form_tag sessions_path do %>
+     <div class="field">
+      <div class = 'inner-div'>
+        <h2>Login</h2>
+          <%= text_field_tag :name, nil, placeholder: "Enter name", :class => 'text' %>
+          <%= submit_tag 'Sign In', :class => 'submit' %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>

@@ -1,0 +1,52 @@
+<div class = "show">
+  <div>
+    <p id="notice"><%= notice %></p>
+    <% if alert %>
+      <p id="alert"><%= alert %></p>
+    <% end %>
+
+    <div class = "event-data">
+      <div>
+        <p><%= @event.name.titleize %></p>
+        <p><%= @event.Description %></p>
+        <p><%= @event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+        <p>Host: <%= @event.creator.name.titleize %></p>
+      </div>
+    </div>
+
+    <div class="">
+      <div class="">
+        <% if current_user == @event.creator %>
+          <%= link_to 'Edit', edit_event_path(@event), class: '' %>
+          <%= link_to 'Back', events_path %>
+          <%= link_to 'Delete', event_path, method: :delete, class: '',
+                                data: { confirm: "Delete this event?"} %>
+                                <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
+                                <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' unless @event.date < Time.now %>
+        <% else @event.attendees.include?(current_user) %>
+          <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
+           <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' unless @event.date < Time.now %>
+        <% end %>
+      </div>
+    </div>
+
+
+    <h2 class="">ATTENDEES</h2>
+
+    <% if @event.attendees.empty? %>
+    <div class="">
+      <h3 class="">This event has no attendees yet</h3>
+		<% elsif @event.date < Time.now && @event.attendees.empty? %>
+      <div >Registration for this event is now closed</div> 
+    </div>
+    <% else %>
+      <div class="">
+        <% @event.attendees.each do |attendee| %>
+        <li class=""> <%= attendee.name %> </li>
+        <% end %>
+      </div>
+    <% end %>
+    <%= link_to 'Back', events_path, class: 'attend_back' %>
+  </div>
+</div>
+

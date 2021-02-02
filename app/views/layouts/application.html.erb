@@ -11,6 +11,39 @@
   </head>
 
   <body>
+      <body>
+  <header>
+    <nav class = "navbar">
+      <h3 class ="header_log">Private Events</h3>
+      <% if current_user %>
+        <p class ="name"> Welcome <%= current_user.name %></p>
+      <% end %>
+      <p>
+        <%= link_to "Home", events_path %>
+      </p>
+      <% if current_user %>
+      <p>
+        <%= link_to current_user.name + ' ' + 'Events', user_path(current_user) %>
+      </p>  
+      <% end %>    
+      <p>
+        <%= link_to "Create event", new_event_path %>
+      </p>
+        <% if current_user %>
+          <p>
+            <%= link_to "Logout", session_path(session), method: :delete %>
+          </p>
+        <% else %>
+          <p class="control">
+            <%= link_to 'Sign In', new_session_path %>
+          </p>
+          <p class="control">
+            <%= link_to 'Sign Up', new_user_path %>
+          </p>
+        <% end %>
+    </nav>
+  </header> 
+
     <%= yield %>
   </body>
 </html>

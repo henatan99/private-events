@@ -1,0 +1,83 @@
+<h1><%= @user.name %>'s Created Upcoming Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  <% if @created_events.any? %>
+    <% @created_events.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= event.creator.name %></small>					
+				</div>
+		<% end %> 
+	<% else %>
+		<p><%= @user.name %> has not created an upcoming event yet.</p>
+	<% end %>   
+
+	<div class = "links">
+		<br>
+		<p><%= link_to 'More details', event_url %></p>					
+	</div>
+</div>
+
+</div>
+
+<h1><%= @user.name %>'s Created Past Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  <% if @user.created_events.past.any? %>
+    <% @user.created_events.past.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= event.creator.name %></small>					
+				</div>
+		<% end %> 
+	<% else %>
+		<p><%= @user.name %> has not created an event yet.</p>
+	<% end %>   
+</div>
+</div>
+
+<h1><%= @user.name %>'s Attending Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  <% if @upcoming_events.any? %>
+    <% @upcoming_events.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= event.creator.name %></small>					
+				</div>
+		<% end %> 
+	<% else %>
+		<p><%= @user.name %> has not attended an event yet.</p>
+	<% end %>   
+</div>
+</div>
+
+
+<h1><%= @user.name %>'s Attended Events</h1>
+<div class ="event_div">
+  <div class ="event_data">
+  <% if @past_events.any? %>
+    <% @past_events.each do |event| %>
+				<div class = "content">
+					<h2><%= event.name %></h2>
+					<p><%= event.Description.truncate(100) %></p>
+					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
+					<small><%= time_ago_in_words(event.created_at) %> ago </small>
+						<small>by <%= event.creator.name %></small>					
+				</div>
+		<% end %> 
+	<% else %>
+		<p><%= @user.name %> has not attended an event yet.</p>
+	<% end %>   
+</div>
+</div>
+
