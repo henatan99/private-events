@@ -21,6 +21,7 @@
 						<p><%= link_to 'New Event', new_event_path(@event) %></p>
 					<% end %>
 				</div>
+				<hr>
 		<% end %> 
   </div>  
 </div>
@@ -36,7 +37,7 @@
 					<p><%= event.Description.truncate(100) %></p>
 					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-						<small>by <%= link_to event.creator.name, user_path(event.creator) %></small>			
+						<small>by <%= link_to event.creator.name, user_path(event.creator), class: 'user_link' %></small>			
 				</div>
 					
 				<div class = "links">

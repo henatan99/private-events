@@ -20,8 +20,18 @@
   flex-direction: column;
   border-radius: 5px;
   padding: 10px 20px;
-  box-shadow: 0 0 8px lightgray;
+  box-shadow: 0 0 4px lightgray;
   margin-top: 25px;
+}
+
+hr {
+  border: 0;
+  clear: both;
+  display: block;
+  width: 96%;
+  background-color: black;
+  height: 0.5px;
+  margin-left: 0;
 }
 
 .submit {
