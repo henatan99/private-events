@@ -8,7 +8,7 @@
 					<p><%= event.Description.truncate(100) %></p>
 					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-						<small>by <%= event.creator.name %></small>					
+						<small>by<%= event.creator.name %></small>					
 				</div>
 		<% end %> 
 	<% else %>
