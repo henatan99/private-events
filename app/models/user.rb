@@ -5,6 +5,8 @@ class User < ApplicationRecord
            dependent: :destroy,
            inverse_of: 'creator'
   has_many :attendances, foreign_key: :attendee_id, dependent: :destroy, inverse_of: 'attendee'
-  has_many :attended_events, through: :attendances, source: :event
+  has_many :attended_events, through: :attendances, source: :event    
+
   validates :name, presence: true, uniqueness: true
+
 end

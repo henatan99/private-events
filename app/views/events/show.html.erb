@@ -21,6 +21,8 @@
           <%= link_to 'Back', events_path %>
           <%= link_to 'Delete', event_path, method: :delete, class: '',
                                 data: { confirm: "Delete this event?"} %>
+                                <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
+                                <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' unless @event.date < Time.now %>
         <% else @event.attendees.include?(current_user) %>
           <%= link_to 'Register', invitation_event_path, class: '' unless @event.date < Time.now %>
            <%= link_to 'Cancel', cancel_invitation_event_path, class: 'cancel' unless @event.date < Time.now %>

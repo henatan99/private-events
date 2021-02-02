@@ -14,15 +14,15 @@
     <div class ="event">
 			<h2>Create Event</h2>
 			<p>
-				<%= form.label :name, claass: 'label' %>
+				<%= form.label :name, claass: 'label', required: true %>
 				<%= form.text_field :name %>
 			</p>
 			<p>
-				<%= form.label :Description,claass: 'label' %>
+				<%= form.label :Description,claass: 'label', required: true  %>
 				<%= form.text_area :Description,cols: 40, rows: 5 %>
       </p>
       <p>
-				<%= form.label :Date,claass: 'label' %>
+				<%= form.label :Date,claass: 'label', required: true  %>
 				<%= form.date_field :date %>
 			</p>
 			<div class="actions">

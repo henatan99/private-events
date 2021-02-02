@@ -9,7 +9,7 @@
 					<p><%= event.Description.truncate(100) %></p>
 					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-						<small>by <%= event.creator.name %></small>					
+						<small>by <%= link_to event.creator.name, user_path(event.creator)  %></small>					
 				</div>
 
 				<div class = "links">
@@ -36,7 +36,7 @@
 					<p><%= event.Description.truncate(100) %></p>
 					<p><%= event.date.strftime("%B %-d, %Y at %l:%M %p") %></p>
 					<small><%= time_ago_in_words(event.created_at) %> ago </small>
-						<small>by <%= event.creator.name %></small>			
+						<small>by <%= link_to event.creator.name, user_path(event.creator) %></small>			
 				</div>
 					
 				<div class = "links">
