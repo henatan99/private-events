@@ -21,6 +21,11 @@
       <p>
         <%= link_to "Home", events_path %>
       </p>
+      <% if current_user %>
+      <p>
+        <%= link_to current_user.name + ' ' + 'Events', user_path(current_user) %>
+      </p>  
+      <% end %>    
       <p>
         <%= link_to "Create event", new_event_path %>
       </p>
