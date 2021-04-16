@@ -2,15 +2,15 @@
 
 ## About 
 
-In this project, we build an application named Private Events and that behaves similar to Eventbrite. The main goal is to put in practice the main concepts of Associations in rails.The app allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and at a location.
+In this project, we build an application named Private Events and that behaves similarly to Eventbrite. The main goal is to put in practice the main concepts of Associations in rails. The app allows users to create events and then manage user signups. Users can create events and send invitations and parties. Events take place at a specific date and a location.
 
-A user can create events. A user can attend many events. An event can be attended by many users. For this, many-to-many model relationships is implemented.
+A user can create events. A user can attend many events. An event can be attended by many users. For this, many-to-many model relationships are implemented.
 
 
 # Built with
 
 * Ruby on rails
-* SQlite
+* SQLite
 * rubocop linters
 * Vs code
 * devise 
@@ -28,7 +28,7 @@ Before you start using the scraper, you need to be sure that you have Ruby insta
 ruby -v
 ```
 
-You should see your version ofruby.
+You should see your version of Ruby.
 If it's not installed in your system, follow this [guide](https://www.ruby-lang.org/en/documentation/installation/) and it will help you to get it done.
 
 Then you can install rails using this command,
@@ -42,7 +42,7 @@ And you can also check your rails version by typing in your terminal
 rails -version
 ```
 
-After that do bundle install to install all required gems and dependences
+After that do bundle install to install all required gems and dependencies. 
 ```
 bundle install
 ```
@@ -52,7 +52,7 @@ Database migration
 rails db:migrate
 ```
 
-You then interract with the program from rails server on the web by 
+You then interact with the program from the Rails server on the web by 
 
 ```
 rails s
@@ -74,7 +74,7 @@ And run the link http://127.0.0.1:3000/
 
 ## Contributions 
 
-Contributions, issues and requests are welcome
+Contributions, issues, and requests are welcome
 
 ## Show support
 
